@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mermaid and the Boy</title>
+<meta name="description" content="A picture book in progress · Siquijor, Philippines">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f7f2e8">
+
+<!-- Link preview (WhatsApp, Instagram DMs, LinkedIn, iMessage) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Mermaid and the Boy">
+<meta property="og:description" content="A picture book in progress · Siquijor, Philippines">
+<meta property="og:image" content="https://bethanysarana.github.io/The-Mermaid-and-The-Boy/og.jpg">
+<meta property="og:url" content="https://bethanysarana.github.io/The-Mermaid-and-The-Boy/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+/* Cormorant Garamond, self-hosted so the page never depends on Google */
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400;font-display:swap;src:url(cormorant-garamond-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400;font-display:swap;src:url(cormorant-garamond-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:500;font-display:swap;src:url(cormorant-garamond-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:500;font-display:swap;src:url(cormorant-garamond-latin-500-italic.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:600;font-display:swap;src:url(cormorant-garamond-latin-600-normal.woff2) format("woff2")}
+
+:root{
+  --paper:#f7f2e8;
+  --ink:#33243a;
+  --ink-soft:#5a4562;
+  --accent:#7a3f7d;
+  --measure:36rem;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper) url(paper.jpg) repeat;
+  background-size:450px 450px;        /* tile is 900px for sharpness on retina */
+  color:var(--ink);
+  font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  font-weight:500;
+  font-size:clamp(1.2rem,1.05rem + .5vw,1.4rem);
+  line-height:1.65;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* ---------- paisley washes bleeding in from the page edges ---------- */
+.decor{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.decor img{position:absolute;width:clamp(150px,34vw,540px);height:auto;opacity:.26}
+.decor .l{left:-3%}
+.decor .r{right:-3%}
+.decor .flip{transform:scaleY(-1)}
+.decor .p1{top:1.5%}
+.decor .p2{top:19%}
+.decor .p3{top:41%}
+.decor .p4{top:62%}
+.decor .p5{top:83%}
+@media (min-width:900px){ .decor img{opacity:.62} }
+
+main{position:relative;z-index:1;max-width:60rem;margin:0 auto;padding:clamp(2.5rem,6vw,5rem) 1.25rem clamp(3rem,8vw,6rem)}
+.col{max-width:var(--measure);margin:0 auto}
+
+/* ---------- title block ---------- */
+h1{
+  font-weight:500;
+  font-size:clamp(2.9rem,9vw,5.2rem);
+  line-height:1.02;
+  letter-spacing:.005em;
+  text-align:center;
+  margin:0 0 .35em;
+}
+.sub{text-align:center;font-style:italic;font-size:1.15em;color:var(--ink-soft);margin:0 0 clamp(1.6rem,4vw,2.6rem)}
+
+.banner{margin:0 0 1.6rem}
+.banner img{display:block;width:100%;height:auto;box-shadow:0 14px 28px -18px rgba(51,36,58,.55)}
+.hook{
+  margin:1.6rem auto 0;max-width:42rem;text-align:center;
+  font-style:italic;font-weight:500;font-size:clamp(1.3rem,1.1rem + 1vw,1.75rem);line-height:1.5;
+}
+.byline{text-align:center;margin:1.8rem 0 clamp(2.5rem,6vw,4rem);font-size:1.15em}
+
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:.2em}
+a:hover{color:var(--ink)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+/* ---------- sections ---------- */
+section{margin:0 auto clamp(2.8rem,6vw,4.2rem)}
+h2{
+  font-weight:600;
+  font-size:clamp(1.95rem,1.5rem + 2vw,2.7rem);
+  line-height:1.12;
+  margin:0 0 .55em;
+}
+p{margin:0 0 1em}
+
+/* ---------- swatches: side by side on desktop, stacked (mermaid first) on mobile ---------- */
+.swatches{
+  display:flex;flex-direction:column;gap:.4rem;
+  max-width:var(--measure);margin:1.6rem auto 0;
+}
+.swatches figure{margin:0}
+.swatches img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
+.swatches .mermaid{order:1}
+.swatches .boy{order:2}
+@media (min-width:760px){
+  .swatches{flex-direction:row;gap:0;max-width:58rem;margin-left:50%;transform:translateX(-50%);width:min(58rem,calc(100vw - 2.5rem))}
+  .swatches figure{flex:1 1 0}
+  .swatches .boy{order:1}
+  .swatches .mermaid{order:2}
+}
+
+.note{font-style:italic;color:var(--ink-soft)}
+.pair p strong{font-weight:600}
+
+/* ---------- about ---------- */
+.sarana{display:block;width:clamp(150px,28vw,210px);height:auto;margin:0 auto 1rem}
+.contact{margin-top:2rem}
+.contact p{margin:0 0 .35em}
+
+footer{height:1px}
+</style>
+</head>
+<body>
+
+<!-- watercolour washes from the paisley print, fading in from the page edges -->
+<div class="decor" aria-hidden="true">
+  <img class="l p1" src="wash-left.webp"  alt="" loading="lazy">
+  <img class="r p2" src="wash-right.webp" alt="" loading="lazy">
+  <img class="l p3 flip" src="wash-left.webp"  alt="" loading="lazy">
+  <img class="r p4 flip" src="wash-right.webp" alt="" loading="lazy">
+  <img class="l p5" src="wash-left.webp"  alt="" loading="lazy">
+</div>
+
+<main>
+  <header>
+    <h1>The Mermaid and the Boy</h1>
+    <p class="sub">A picture book in progress · Siquijor, Philippines</p>
+
+    <figure class="banner">
+      <img src="banner.jpg" width="1800" height="533"
+           alt="Watercolour of a Siquijor shoreline at sunset: a pink, orange and violet sky above deep blue water, with palm-covered headland on the right.">
+    </figure>
+    <p class="hook">“On a quiet stretch of shoreline on the island of Siquijor, the tide behaves like a shy clock. Sometimes it is early, sometimes it is late, because time forgets the rules here. In this place, there lived a boy who measured everything, and a girl who felt everything.”</p>
+
+    <p class="byline"><a href="mailto:bethanysarana4@gmail.com">Bethany Wickramasinghe</a></p>
+  </header>
+
+  <div class="col">
+    <section>
+      <h2>A story that speaks in more than one voice</h2>
+      <p>On the surface, this is a children's story about a mermaid, a boy and a magical island - the kind of quietly enchanted world children inhabit naturally. Underneath lives a lesson that doesn't announce itself as one (which to me, is the only kind worth writing about). Two kinds of intelligence learn to be present with each other without needing the other to change. This theme belongs to anyone who has ever loved someone who sees the world completely differently to themselves.</p>
+    </section>
+
+    <section>
+      <h2>A world taking shape</h2>
+      <p>There's an island in the Philippines called Siquijor. It has a reputation for magic and mysticism. The kind that lives in reflections, shadows and the sense of passing time. My story is rooted in this Siquijor atmosphere through words and a distinctive visual language: original watercolour illustrations painted to be rooted in Siquijor’s unique tropical light.</p>
+      <div class="swatches">
+        <figure class="boy"><img src="boy-swatch.webp" width="1100" height="339" loading="lazy"
+          alt="Four watercolour swatches on textured paper: golden ochre, dark brown, burnt orange and green."></figure>
+        <figure class="mermaid"><img src="mermaid-swatch.webp" width="1100" height="341" loading="lazy"
+          alt="Four watercolour swatches on textured paper: deep violet, golden yellow, bright blue and magenta."></figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>The making of the book</h2>
+      <p>The manuscript is complete, and I have mapped the creative direction for the book across its individual spreads. A detailed visual concept is taking shape, with original watercolour illustrations underway. My intention is to create a considered and cohesive book in which words, images, atmosphere and physical form work together, each contributing to the experience of the whole.</p>
+      <p>I'm creating a hardback with the weight and feel of something that wants to be kept. The kind of book that lives between the art books and the children's books but belongs fully to both. The kind a parent reads with a child, and stays up thinking about after.</p>
+      <p class="note">Planned format: ~40-page case-bound hardback, uncoated paper.</p>
+    </section>
+
+    <section>
+      <h2>An invitation</h2>
+      <p>I'm interested in connecting with independent publishers, editors, art directors, book designers, printers, bookbinders and creative collaborators who are drawn to thoughtful, illustrated storytelling.</p>
+      <p>I'm looking for a publishing relationship that can bring professional experience, care and imagination to the process, while respecting the book's original creative vision. If the project resonates with you, I'd welcome a conversation. Let's explore what this book could become!</p>
+    </section>
+
+    <section class="pair">
+      <h2>Open and held</h2>
+      <p><strong>Open:</strong> editorial suggestions on the manuscript, conversation about sequence and pacing, professional book design recommendations, physical production guided by the quality I intend.</p>
+      <p><strong>Held:</strong> conceptual and physical authorship, and the dual register.</p>
+    </section>
+
+    <section>
+      <h2>Life imitates art</h2>
+      <p>This year (2026) I lived on the island of Siquijor, Philippines and I have never felt more inspired to write anything in my whole life. There is a beach on the far East side of the island called “Monkey Beach”. I pictured this beach in my mind when I wrote the first draft of The Mermaid and the Boy. It was only afterwards that I visited the beach and got literal goosebumps as I stepped into the world I thought I had only imagined.</p>
+    </section>
+
+    <section>
+      <h2>About the creator</h2>
+      <img class="sarana" src="sarana.webp" width="531" height="472" loading="lazy"
+           alt="Watercolour illustration of a barefoot woman in a white dress bending to paint, with the signature “Sarana”.">
+      <p>According to Hamburg philosopher Johann von Wowern, I might be a polymath. I am a (semi) retired scientist who packed up a nice London life in 2024 in search of adventure.</p>
+      <p>Apparently, if you keep saying something with enough confidence, life occasionally decides to take it literally.</p>
+      <p>I spent a year on Australia’s East Coast and have been travelling/dancing/painting/writing about the world for the last two years in pursuit of a wilder version of myself.</p>
+      <p>Everywhere I go, I write stories and paint whimsical watercolours inspired by the world around me. Sometimes these depict real people and places, other times, a real-life spark has a baby with a fever dream or a shower thought.</p>
+      <p>“The Mermaid and the Boy” is one such love child.</p>
+
+      <div class="contact">
+        <p>Contact: <a href="mailto:bethanysarana4@gmail.com">bethanysarana4@gmail.com</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/bethsarana/" target="_blank" rel="noopener">@bethsarana</a></p>
+        <p>Substack: <a href="https://substack.com/@bethanysarana" target="_blank" rel="noopener">https://substack.com/@bethanysarana</a></p>
+        <p>Currently based in Kuala Lumpur, happy to meet in person.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+</body>
+</html>
